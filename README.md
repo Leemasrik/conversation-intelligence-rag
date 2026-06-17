@@ -136,10 +136,18 @@ streamlit run app.py
 
 ![Chunks](Image4.png)
 ---
+# Live Demo
+
+**Streamlit Application:**
+
+https://conversation-intelligence-rag-8vrm4esdkshghbxeeqwcaq.streamlit.app/
+
+---
+
 # Video Demo
 
-Loom Video:
+**Loom Video:**
 
-```
-Paste your Loom video link here
-```
+https://www.loom.com/share/1cf951385e5a42d69e7e390c7f195bc9
+
+---
