@@ -114,7 +114,7 @@ streamlit run app.py
 
 ## Chatbot Response
 
-![Chatbot](Image!.png)
+![Chatbot](Image1.png)
 
 ---
 
