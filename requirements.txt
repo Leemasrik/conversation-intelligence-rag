@@ -1,0 +1,13 @@
+streamlit
+faiss-cpu
+sentence-transformers
+transformers
+torch
+torchvision
+numpy
+sumy
+rake-nltk
+nltk
+scikit-learn
+networkx
+pandas
