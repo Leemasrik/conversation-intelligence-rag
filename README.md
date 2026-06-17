@@ -109,15 +109,33 @@ streamlit run app.py
 
 # Screenshots
 
-_Add screenshots here_
 
-- Home Page
-- Chatbot Response
-- Persona Section
-- Retrieved Topic Summaries
+
+
+## Chatbot Response
+
+![Chatbot](Image!.png)
 
 ---
 
+## User Persona
+
+![Persona](Image2.png)
+
+
+---
+
+## Retrieved Topic Summaries
+
+![Topics](Image3.png)
+
+
+
+---
+## Retrieved Chunk Summaries
+
+![Chunks](Image4.png)
+---
 # Video Demo
 
 Loom Video:
