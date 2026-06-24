@@ -190,7 +190,7 @@ https://conversation-intelligence-rag-8vrm4esdkshghbxeeqwcaq.streamlit.app/
 https://github.com/Leemasrik/conversation-intelligence-rag
 
 **Loom Walkthrough:**
-https://www.loom.com/share/1cf951385e5a42d69e7e390c7f195bc9
+https://www.loom.com/share/392de44f42b548b18374c48194260aa1
 
 ---
 
