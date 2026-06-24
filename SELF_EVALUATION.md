@@ -53,14 +53,14 @@ I implemented a complete offline Conversation Intelligence System capable of chr
 ### Architecture
 ★★★★★
 
-### Code Quality
+### Retrieval Quality
 ★★★★☆
 
-### Retrieval Quality
+### Conflict Resolution
 ★★★★☆
 
 ### Explainability
 ★★★★★
 
-### Offline Performance
-★★★★★
+### Overall
+★★★★☆
