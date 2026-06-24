@@ -57,9 +57,6 @@ def generate_answer(query, results, persona=None):
 
     text = " ".join(topic.get("messages", []))
 
-    # ------------------------------------
-    # Moving / Location
-    # ------------------------------------
 
     if any(x in query for x in [
         "where",
@@ -93,9 +90,7 @@ def generate_answer(query, results, persona=None):
 
         return sentence or summary
 
-    # ------------------------------------
-    # Job
-    # ------------------------------------
+ 
 
     elif any(x in query for x in [
         "job",
@@ -125,9 +120,7 @@ def generate_answer(query, results, persona=None):
 
         return sentence or summary
 
-    # ------------------------------------
-    # Pets
-    # ------------------------------------
+ 
 
     elif any(x in query for x in [
         "dog",
@@ -148,9 +141,7 @@ def generate_answer(query, results, persona=None):
 
         return sentence or summary
 
-    # ------------------------------------
-    # Hobbies
-    # ------------------------------------
+ 
 
     elif any(x in query for x in [
         "hobby",
@@ -172,9 +163,7 @@ def generate_answer(query, results, persona=None):
 
         return sentence or summary
 
-    # ------------------------------------
-    # Habits
-    # ------------------------------------
+
 
     elif "habit" in query:
 
@@ -187,25 +176,31 @@ def generate_answer(query, results, persona=None):
 
         return "No habits were identified."
 
-    # ------------------------------------
-    # Personality
-    # ------------------------------------
+
 
     elif "personality" in query or "person" in query:
 
         if persona and persona["personality_traits"]:
+            return "The user appears to be " + ", ".join(persona["personality_traits"])
 
-            return "The user appears to be " + ", ".join(
-                persona["personality_traits"]
-            )
+        return (
+            "The user appears to communicate in a "
+            f"{persona['communication_style']['tone']} tone "
+            f"with {persona['communication_style']['message_length'].lower()} messages."
+        )
 
-        return "Personality could not be determined."
+ 
 
-    # ------------------------------------
-    # Communication
-    # ------------------------------------
+    elif any(word in query for word in [
+            "communicate",
+            "communication",
+            "communicat",
+            "talk",
+            "speaks",
+            "speaking",
+            "conversation"
+        ]):
 
-    elif "communicat" in query or "talk" in query:
 
         if persona:
 
@@ -218,9 +213,7 @@ def generate_answer(query, results, persona=None):
 
         return "Communication style unavailable."
 
-    # ------------------------------------
-    # Personal facts
-    # ------------------------------------
+ 
 
     elif "fact" in query:
 
@@ -233,8 +226,98 @@ def generate_answer(query, results, persona=None):
 
         return "No personal facts found."
 
-    # ------------------------------------
-    # Default
-    # ------------------------------------
-
+  
     return summary
+
+def generate_conflict_answer(conflict_result):
+
+    if conflict_result is None:
+        return "No relevant information found."
+
+    output = []
+
+    output.append(f"🔍 Query Entity : {conflict_result['entity']}\n")
+
+    output.append("=" * 60)
+
+    # Current Understanding
+    output.append("\n🧠 Current Understanding\n")
+
+    timeline = conflict_result["timeline"]
+    latest = timeline[-1]["summary"]
+
+    output.append(
+        f"The user mentioned **{conflict_result['entity']}** across multiple conversations. "
+        "The retrieved memories have been ordered chronologically and analyzed for consistency.\n"
+    )
+
+    output.append(f"Latest Memory:\n{latest}")
+
+    output.append("\n" + "=" * 60)
+
+    # Timeline
+    output.append("\n📅 Timeline\n")
+
+    for topic in timeline:
+
+        output.append(
+            f"\nConversation {topic['conversation_id']}"
+        )
+
+        output.append(
+            f"Messages : {topic['start_message']} - {topic['end_message']}"
+        )
+
+        output.append(
+            f"Summary : {topic['summary']}"
+        )
+
+    output.append("\n" + "=" * 60)
+
+    # Evidence
+    output.append("\n📌 Supporting Evidence\n")
+
+    for chunk in conflict_result["evidence"]:
+
+        output.append(f"• {chunk['text']}")
+
+    output.append("\n" + "=" * 60)
+
+    # Contradictions
+    output.append("\n⚠ Conflict Analysis\n")
+
+    if conflict_result["conflicts"]:
+
+        output.append(
+            "Some retrieved conversations contain inconsistent information."
+        )
+
+        output.append(
+            "This is expected because the dataset consists of independent conversations collected across different days."
+        )
+
+        output.append(
+            "The system therefore presents the latest and most relevant information while flagging possible inconsistencies."
+        )
+
+    else:
+
+        output.append(
+            "No significant contradictions were detected across the retrieved conversations."
+        )
+
+    output.append("\n" + "=" * 60)
+
+    # Final Conclusion
+    output.append("\n✅ Final Conclusion\n")
+
+    output.append(
+        "The response was generated by combining:\n"
+        "• Topic Checkpoints\n"
+        "• Retrieved Message Chunks\n"
+        "• Chronological Ordering\n"
+        "• Emotion-Based Ranking\n"
+        "• Conflict Detection\n"
+    )
+
+    return "\n".join(output)

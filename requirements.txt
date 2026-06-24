@@ -5,9 +5,14 @@ transformers
 torch
 torchvision
 numpy
+pandas
+scikit-learn
+nltk
 sumy
 rake-nltk
-nltk
-scikit-learn
 networkx
-pandas
+joblib
+scipy
+regex
+tqdm
+Pillow

@@ -15,7 +15,7 @@ def extract_persona(messages):
 
     text = " ".join(user_messages).lower()
 
-    #################################################
+  
 
     habits = []
 
@@ -35,7 +35,7 @@ def extract_persona(messages):
         if any(word in sentence.lower() for word in habit_words):
             habits.append(sentence)
 
-    #################################################
+  
 
     personal_facts = []
 
@@ -61,7 +61,7 @@ def extract_persona(messages):
             re.findall(pattern, text)
         )
 
-    #################################################
+  
 
     avg_words = sum(
         len(x.split())
@@ -76,7 +76,7 @@ def extract_persona(messages):
     if avg_words > 25:
         style = "Long"
 
-    #################################################
+ 
 
     personality=[]
 
@@ -86,7 +86,7 @@ def extract_persona(messages):
     if avg_words>15:
         personality.append("Detailed")
 
-    #################################################
+  
 
     return {
 

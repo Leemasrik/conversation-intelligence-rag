@@ -28,9 +28,7 @@ for conversation_id, conversation in enumerate(conversations):
         global_message_id
     )
 
-    #########################################################
-    # Topic Checkpoints
-    #########################################################
+  
 
     topic_ranges = detect_topics(messages)
 
@@ -56,10 +54,7 @@ for conversation_id, conversation in enumerate(conversations):
             }
         )
 
-    #########################################################
-    # 100 Message Checkpoints
-    #########################################################
-
+ 
     for message in messages:
 
         checkpoint_buffer.append(message)
@@ -80,7 +75,7 @@ for conversation_id, conversation in enumerate(conversations):
 
             checkpoint_buffer = []
 
-##############################################################
+
 
 with open(
     "summaries/topic_summaries.json",
