@@ -184,7 +184,7 @@ streamlit run app.py
 ## Demo
 
 **Live Application:**
-(Add deployed Streamlit URL)
+https://conversation-intelligence-rag-8vrm4esdkshghbxeeqwcaq.streamlit.app/
 
 **GitHub Repository:**
 https://github.com/Leemasrik/conversation-intelligence-rag
