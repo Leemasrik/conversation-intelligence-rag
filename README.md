@@ -153,7 +153,6 @@ streamlit run app.py
 ---
 
 ## Design Decisions
-
 * Offline-first architecture
 * Lightweight ML model for intent classification
 * CPU-only inference
@@ -184,14 +183,14 @@ streamlit run app.py
 
 ## Demo
 
-Live Application:
+**Live Application:**
 (Add deployed Streamlit URL)
 
-GitHub Repository:
-(Add GitHub repository URL)
+**GitHub Repository:**
+https://github.com/Leemasrik/conversation-intelligence-rag
 
-Loom Walkthrough:
-(Add Loom video URL)
+**Loom Walkthrough:**
+https://www.loom.com/share/1cf951385e5a42d69e7e390c7f195bc9
 
 ---
 
